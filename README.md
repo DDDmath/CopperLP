@@ -21,12 +21,23 @@ artifacts for the Coppersmith experiments reported in our work.
 
 The experiments require:
 
-- SageMath;
-- Bash;
+- SageMath 10.8 or later;
+- Bash, when using `run_all_table2.sh`;
 - sufficient memory for lattice reduction and Gröbner-basis computation.
 
-Some optional verification procedures may require additional external
-software when they are enabled in the corresponding SageMath script.
+The default configuration uses the lattice-reduction and Gröbner-basis
+facilities included with SageMath.
+
+The optional `msolve` backend may accelerate Assumption 1 verification.
+It must be installed separately for the same SageMath installation and is
+used only when:
+
+```python
+USE_MSOLVE_ASSUMPTION1 = True
+```
+
+By default, this option is disabled, and no separate `msolve` installation
+is required.
 
 ## Running All Experiments
 
