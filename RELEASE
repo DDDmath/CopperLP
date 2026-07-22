@@ -1,0 +1,7 @@
+CopperLP Reproducibility Package
+Version: 1.0.0
+Release date: 2026-07-23
+
+This release contains the SageMath scripts, parameter profiles,
+fixed instances, and experiment logs used to reproduce the
+Coppersmith experiments reported in Table 2.
