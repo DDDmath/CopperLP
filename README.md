@@ -63,6 +63,41 @@ sage LCG.sage
 sage LIPH_POKE.sage
 ```
 
+## Adjusting Parameters
+
+Before running an experiment, open the corresponding `.sage` file and modify
+the configuration block near the beginning of the script.
+
+For example:
+
+```python
+N_RUNS = 1
+PBITS = 256
+UBITS = 29
+M = 2
+SEED = None
+VERIFY_ASSUMPTION1 = True
+```
+
+The available parameters depend on the experiment. Common parameters include:
+
+- `N_RUNS`: number of independent experimental runs;
+- `PBITS`: modulus size in bits;
+- `UBITS`, `X1_BITS`, or `X2_BITS`: bounds for the unknown values;
+- `M`: polytope or lattice-construction scale;
+- `TH`: polytope parameters;
+- `DELTA`: LLL reduction parameter;
+- `SEED`: random seed used to obtain repeatable runs;
+- `VERIFY_ASSUMPTION1`: whether to verify Assumption 1;
+- `USE_MSOLVE_ASSUMPTION1`: whether to use msolve for the verification step.
+
+After changing the desired parameters, save the script and run it with
+SageMath. For example:
+
+```bash
+sage CIHNP_CSURF.sage
+```
+
 ## Parameter Configuration
 
 The configurable parameters are defined at the beginning of each SageMath
@@ -80,36 +115,36 @@ automatically load this JSON file. Users should manually copy the desired
 parameter values into the configuration section at the beginning of the
 corresponding script before running it.
 
-## Fixed Instances
+## Experiment Instances
 
-The `instances/` directory contains fixed synthetic test instances for the
-five application families:
+By default, the SageMath scripts generate a fresh synthetic instance for
+each run. To obtain a repeatable run sequence, set `SEED` to a fixed integer
+in the configuration section of the corresponding script.
 
-```text
-instances/
-├── fixed_instance_cihnp_csurf.json
-├── fixed_instance_mihnp.json
-├── fixed_instance_echnp.json
-├── fixed_instance_lcg.json
-└── fixed_instance_liph_poke.json
-```
-
-The fixed instances are included to make the experiments deterministic and
-independently reproducible.
+The files in the `instances/` directory are currently placeholders for fixed
+public test instances. The current SageMath scripts do not automatically load
+these JSON files.
 
 ## Experimental Logs
 
-Reference results are stored in:
+The files:
 
 ```text
 logs/table2_results.csv
 logs/stress_test_results.csv
 ```
 
-Running times depend on the processor, available memory, SageMath version,
-lattice-reduction backend, and Gröbner-basis implementation. Therefore,
-runtime values may differ across machines even when the recovered roots and
-success indicators remain unchanged.
+provide the column formats for recording experimental results.
+
+At present, each SageMath script prints one summary line for every run
+directly to the terminal. The scripts do not automatically write their
+outputs to these CSV files. Experimental results should therefore be copied
+to the corresponding CSV file manually, unless an external collection script
+is used.
+
+Running times may vary depending on the processor, available memory,
+SageMath version, lattice-reduction backend, and Gröbner-basis
+implementation.
 
 ## Repository Structure
 
