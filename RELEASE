@@ -1,7 +1,19 @@
 CopperLP Reproducibility Package
-Version: 1.0.0
-Release date: 2026-07-23
 
-This release contains the SageMath scripts, parameter profiles,
-fixed instances, and experiment logs used to reproduce the
-Coppersmith experiments reported in Table 2.
+Status: Development snapshot
+Version: 0.1.0
+Last updated: 2026-07-23
+
+This repository currently contains the five SageMath experiment scripts
+and the batch runner.
+
+Experiment parameters are configured manually in the configuration section
+at the beginning of each SageMath script.
+
+The files under profiles/, instances/, and logs/ are currently templates or
+placeholders. They are not automatically loaded or populated by the current
+experiment scripts.
+
+A numbered reproducibility release will be prepared after the exact Table 2
+parameter profiles, fixed test instances, and verified reference results have
+been added.
