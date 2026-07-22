@@ -11,10 +11,10 @@ artifacts for the Coppersmith experiments reported in our work.
 - `LCG.sage`: experiments for truncated linear congruential generators.
 - `LIPH_POKE.sage`: experiments for LIPH-POKE.
 - `run_all_table2.sh`: runs all five experiment scripts sequentially.
-- `profiles/table2_profiles.json`: parameter profiles for the Table 2 experiments.
-- `instances/`: fixed test instances used for reproducibility.
-- `logs/table2_results.csv`: results corresponding to the Table 2 experiments.
-- `logs/stress_test_results.csv`: additional stress-test results.
+- `profiles/table2_profiles.json`: placeholder for recording the parameter profiles used in the Table 2 experiments.
+- `instances/`: placeholders for fixed public test instances.
+- `logs/table2_results.csv`: column format for recording the Table 2 experiment results.
+- `logs/stress_test_results.csv`: column format for recording additional stress-test results.
 - `RELEASE`: release and version information.
 
 ## Requirements
