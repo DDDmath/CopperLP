@@ -1,0 +1,20 @@
+# macOS
+.DS_Store
+
+# SageMath generated files
+*.sage.py
+*.sobj
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~
+
+# Editor settings
+.vscode/
+.idea/
