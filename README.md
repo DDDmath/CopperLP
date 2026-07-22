@@ -63,16 +63,22 @@ sage LCG.sage
 sage LIPH_POKE.sage
 ```
 
-## Parameter Profiles
+## Parameter Configuration
 
-The parameter settings associated with the Table 2 experiments are stored in:
+The configurable parameters are defined at the beginning of each SageMath
+script and can be adjusted manually before execution.
+
+The file:
 
 ```text
 profiles/table2_profiles.json
 ```
 
-These profiles record the principal experimental parameters used by the
-corresponding SageMath scripts.
+is intended to record the exact parameter combinations used for the
+experiments reported in Table 2. The current SageMath scripts do not
+automatically load this JSON file. Users should manually copy the desired
+parameter values into the configuration section at the beginning of the
+corresponding script before running it.
 
 ## Fixed Instances
 
