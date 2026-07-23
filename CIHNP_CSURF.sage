@@ -10,7 +10,7 @@ import time
 # Table 2 parameter presets: (PBITS, UBITS, M)
 #
 #   (256,  29, 2)
-#   (512,  70, 3)
+#   (512,  69, 3)
 #   (1024, 177, 4)
 #
 # To reproduce a particular row, manually replace PBITS,
