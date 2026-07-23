@@ -1,71 +1,39 @@
 # CopperLP
 
-This repository contains the SageMath implementations and reproducibility
-artifacts for the Coppersmith experiments reported in our work.
+This repository contains the SageMath research scripts accompanying our work on computing asymptotic bounds for the automated Coppersmith method via linear programming.
 
-## Repository Contents
+The repository is intended to provide the experimental implementations used in the paper. Each script can be inspected and executed independently. Experimental parameters are configured manually near the beginning of the corresponding script.
 
-- `CIHNP_CSURF.sage`: experiments for CIHNP-CSURF.
-- `MIHNP.sage`: experiments for MIHNP.
-- `ECHNP.sage`: experiments for ECHNP.
+## Included Experiments
+
+- `CIHNP_CSURF.sage`: CIHNP-CSURF experiments.
+- `MIHNP.sage`: MIHNP experiments with different numbers of samples.
+- `ECHNP.sage`: ECHNP experiments.
 - `LCG.sage`: experiments for truncated linear congruential generators.
-- `LIPH_POKE.sage`: experiments for LIPH-POKE.
-- `run_all_table2.sh`: runs all five experiment scripts sequentially.
-- `profiles/table2_profiles.json`: placeholder for recording the parameter profiles used in the Table 2 experiments.
-- `instances/`: placeholders for fixed public test instances.
-- `logs/table2_results.csv`: column format for recording the Table 2 experiment results.
-- `logs/stress_test_results.csv`: column format for recording additional stress-test results.
-- `RELEASE`: release and version information.
+- `LIPH_POKE.sage`: LIPH-POKE experiments.
 
 ## Requirements
 
 The experiments require:
 
 - SageMath 10.8 or later;
-- Bash, when using `run_all_table2.sh`;
 - sufficient memory for lattice reduction and Gröbner-basis computation.
 
-The default configuration uses the lattice-reduction and Gröbner-basis
-facilities included with SageMath.
+The scripts use SageMath's built-in lattice-reduction and Gröbner-basis implementations by default.
 
-The optional `msolve` backend may accelerate Assumption 1 verification.
-It must be installed separately for the same SageMath installation and is
-used only when:
+The optional `msolve` backend can be used to accelerate Assumption 1 verification when it is available in the SageMath environment. It is disabled by default and is not required to run the scripts.
 
-```python
-USE_MSOLVE_ASSUMPTION1 = True
-```
+## Running an Experiment
 
-By default, this option is disabled, and no separate `msolve` installation
-is required.
+Download or clone the repository and enter the repository directory.
 
-## Running All Experiments
-
-Download or clone the repository, enter the repository directory, and run:
-
-```bash
-bash run_all_table2.sh
-```
-
-The scripts are executed in the following order:
-
-1. CIHNP-CSURF;
-2. MIHNP;
-3. ECHNP;
-4. LCG;
-5. LIPH-POKE.
-
-The runner prints the experimental results directly to the terminal.
-
-## Running an Individual Experiment
-
-Each experiment can also be executed separately. For example:
+Run an individual experiment with SageMath. For example:
 
 ```bash
 sage CIHNP_CSURF.sage
 ```
 
-The other experiments can be run with:
+The other scripts can be executed in the same way:
 
 ```bash
 sage MIHNP.sage
@@ -76,8 +44,7 @@ sage LIPH_POKE.sage
 
 ## Adjusting Parameters
 
-Before running an experiment, open the corresponding `.sage` file and modify
-the configuration block near the beginning of the script.
+Before running an experiment, open the corresponding `.sage` file and modify the configuration block near the beginning of the script.
 
 For example:
 
@@ -88,100 +55,35 @@ UBITS = 29
 M = 2
 SEED = None
 VERIFY_ASSUMPTION1 = True
+USE_MSOLVE_ASSUMPTION1 = False
 ```
 
 The available parameters depend on the experiment. Common parameters include:
 
-- `N_RUNS`: number of independent experimental runs;
+- `N_RUNS`: number of independent runs;
 - `PBITS`: modulus size in bits;
 - `UBITS`, `X1_BITS`, or `X2_BITS`: bounds for the unknown values;
-- `M`: polytope or lattice-construction scale;
+- `M`: lattice-construction or polytope scale;
 - `TH`: polytope parameters;
 - `DELTA`: LLL reduction parameter;
-- `SEED`: random seed used to obtain repeatable runs;
+- `SEED`: optional random seed;
 - `VERIFY_ASSUMPTION1`: whether to verify Assumption 1;
-- `USE_MSOLVE_ASSUMPTION1`: whether to use msolve for the verification step.
+- `USE_MSOLVE_ASSUMPTION1`: whether to use the optional `msolve` backend.
 
-After changing the desired parameters, save the script and run it with
-SageMath. For example:
+After modifying the parameters, save the file and execute it with SageMath.
 
-```bash
-sage CIHNP_CSURF.sage
-```
+## Experimental Parameters
 
-## Parameter Configuration
-
-The configurable parameters are defined at the beginning of each SageMath
-script and can be adjusted manually before execution.
-
-The file:
+The parameter combinations corresponding to the experiments reported in Table 2 are recorded separately in:
 
 ```text
 profiles/table2_profiles.json
 ```
 
-is intended to record the exact parameter combinations used for the
-experiments reported in Table 2. The current SageMath scripts do not
-automatically load this JSON file. Users should manually copy the desired
-parameter values into the configuration section at the beginning of the
-corresponding script before running it.
+The SageMath scripts do not automatically read this file. To reproduce a particular parameter setting, manually copy the desired values into the configuration block of the corresponding script.
 
-## Experiment Instances
+## Notes
 
-By default, the SageMath scripts generate a fresh synthetic instance for
-each run. To obtain a repeatable run sequence, set `SEED` to a fixed integer
-in the configuration section of the corresponding script.
+The scripts generate synthetic experimental instances. Running times may vary depending on the processor, available memory, SageMath version, lattice-reduction backend, and Gröbner-basis implementation.
 
-The files in the `instances/` directory are currently placeholders for fixed
-public test instances. The current SageMath scripts do not automatically load
-these JSON files.
-
-## Experimental Logs
-
-The files:
-
-```text
-logs/table2_results.csv
-logs/stress_test_results.csv
-```
-
-provide the column formats for recording experimental results.
-
-At present, each SageMath script prints one summary line for every run
-directly to the terminal. The scripts do not automatically write their
-outputs to these CSV files. Experimental results should therefore be copied
-to the corresponding CSV file manually, unless an external collection script
-is used.
-
-Running times may vary depending on the processor, available memory,
-SageMath version, lattice-reduction backend, and Gröbner-basis
-implementation.
-
-## Repository Structure
-
-```text
-CopperLP/
-├── README.md
-├── RELEASE
-├── run_all_table2.sh
-├── CIHNP_CSURF.sage
-├── MIHNP.sage
-├── ECHNP.sage
-├── LCG.sage
-├── LIPH_POKE.sage
-├── profiles/
-│   └── table2_profiles.json
-├── instances/
-│   ├── fixed_instance_cihnp_csurf.json
-│   ├── fixed_instance_mihnp.json
-│   ├── fixed_instance_echnp.json
-│   ├── fixed_instance_lcg.json
-│   └── fixed_instance_liph_poke.json
-└── logs/
-    ├── table2_results.csv
-    └── stress_test_results.csv
-```
-
-## Release Information
-
-The current release information is recorded in the `RELEASE` file.
+The current version information is recorded in the `RELEASE` file.
