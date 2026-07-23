@@ -2,7 +2,17 @@
 
 This repository contains the SageMath research scripts accompanying our work on computing asymptotic bounds for the automated Coppersmith method via linear programming.
 
-The scripts are provided as research code for inspecting and reproducing the experiments reported in the paper. Each experiment is executed independently, and its parameters are configured manually near the beginning of the corresponding SageMath script.
+The repository includes an implementation of Algorithm 1 for computing asymptotic coefficients, together with research scripts for inspecting and reproducing the experiments reported in the paper. Each experiment is executed independently, and its parameters are configured manually near the beginning of the corresponding SageMath script.
+
+## Algorithm 1
+
+- `Algorithm_1.sage`: implementation of Algorithm 1 for computing the asymptotic coefficients and the resulting asymptotic small-root bound from a polynomial system and a rational polytope.
+
+Run Algorithm 1 with:
+
+```bash
+sage Algorithm_1.sage
+```
 
 ## Included Experiments
 
@@ -14,12 +24,12 @@ The scripts are provided as research code for inspecting and reproducing the exp
 
 ## Requirements
 
-The experiments require:
+The scripts require:
 
 - SageMath 10.8 or later;
-- sufficient memory for lattice reduction and Gröbner-basis computation.
+- sufficient memory for polyhedral computation, lattice reduction, and Gröbner-basis computation.
 
-The scripts use SageMath's built-in lattice-reduction and Gröbner-basis implementations by default.
+The experimental scripts use SageMath's built-in lattice-reduction and Gröbner-basis implementations by default.
 
 The optional `msolve` backend can be used to accelerate Assumption 1 verification when it is available in the SageMath environment. It is disabled by default and is not required to run the scripts.
 
@@ -27,13 +37,19 @@ The optional `msolve` backend can be used to accelerate Assumption 1 verificatio
 
 Clone or download the repository and enter its directory.
 
+Run Algorithm 1 with:
+
+```bash
+sage Algorithm_1.sage
+```
+
 Run an individual experiment with SageMath:
 
 ```bash
 sage CIHNP_CSURF.sage
 ```
 
-The other scripts are executed in the same way:
+The other experimental scripts are executed in the same way:
 
 ```bash
 sage MIHNP.sage
@@ -44,7 +60,7 @@ sage LIPH_POKE.sage
 
 ## Adjusting Parameters
 
-Before running a script, modify the configuration block near the beginning of that script.
+Before running an experimental script, modify the configuration block near the beginning of that script.
 
 For example:
 
@@ -75,6 +91,6 @@ To reproduce a particular row of Table 2, manually enter the corresponding param
 
 ## Notes
 
-The scripts generate synthetic experimental instances. Running times may vary depending on the processor, available memory, SageMath version, lattice-reduction backend, and Gröbner-basis implementation.
+The experimental scripts generate synthetic experimental instances. Running times may vary depending on the processor, available memory, SageMath version, lattice-reduction backend, and Gröbner-basis implementation.
 
 Version information is recorded in the `RELEASE` file.
