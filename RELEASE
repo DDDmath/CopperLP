@@ -4,17 +4,18 @@ Version: 0.1.0
 Status: Development snapshot
 Last updated: 2026-07-23
 
-This repository contains five SageMath research scripts accompanying our work on computing asymptotic bounds for the automated Coppersmith method via linear programming.
+This repository contains the SageMath research code accompanying our work on computing asymptotic bounds for the automated Coppersmith method via linear programming.
 
-The included scripts are:
+The repository includes:
 
-- CIHNP_CSURF.sage
-- MIHNP.sage
-- ECHNP.sage
-- LCG.sage
-- LIPH_POKE.sage
+- Algorithm_1.sage: implementation of Algorithm 1 for computing asymptotic coefficients and small-root bounds;
+- CIHNP_CSURF.sage: CIHNP-CSURF experiments;
+- MIHNP.sage: MIHNP experiments with different numbers of samples;
+- ECHNP.sage: ECHNP experiments;
+- LCG.sage: truncated linear congruential generator experiments;
+- LIPH_POKE.sage: LIPH-POKE experiments.
 
-Each script is executed independently. Experimental parameters are configured manually in the configuration section near the beginning of the corresponding script.
+Each script is executed independently. Its inputs or experimental parameters are configured manually near the beginning of the corresponding SageMath script.
 
 The repository is provided as a research code archive. It is not an installable software package and does not provide an automated batch runner.
 
