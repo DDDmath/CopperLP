@@ -3,6 +3,26 @@
 from sage.all import *
 import time
 
+# ============================================================
+# User configuration
+# ============================================================
+#
+# Table 2 parameter presets:
+# (PBITS, X1_BITS, X2_BITS, M)
+#
+#   (256,   27,  90, 2)
+#   (512,   60, 180, 3)
+#   (1024, 149, 360, 4)
+#
+# All three experiments use:
+#
+#   NVAR = 2
+#   TH = QQ(301)/QQ(500)
+#   USE_SYNTHETIC_INSTANCE = True
+#
+# To reproduce a particular row, manually replace PBITS,
+# X1_BITS, X2_BITS, and M below.
+#
 
 N_RUNS = 1         # Number of independent experiments.
 NVAR = 2           # Unknowns are x1 and x2.
