@@ -3,6 +3,21 @@
 from sage.all import *
 import time
 
+# ============================================================
+# User configuration
+# ============================================================
+#
+# Table 2 parameter presets:
+# (NSAMPLES, PBITS, UBITS, M)
+#
+#   (6, 256, 72, 2)
+#   (8, 256, 76, 3)
+#
+# NVAR is automatically set equal to NSAMPLES.
+#
+# To reproduce a particular row, manually replace NSAMPLES,
+# PBITS, UBITS, and M below.
+#
 
 N_RUNS = 1        # Number of independent experiments.
 NSAMPLES = 6      # Number of consecutive multiplicative-LCG outputs.
