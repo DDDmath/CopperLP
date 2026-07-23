@@ -4,6 +4,23 @@ from sage.all import *
 import itertools
 import time
 
+# ============================================================
+# User configuration
+# ============================================================
+#
+# Table 2 parameter presets: (PBITS, UBITS, M)
+#
+#   (512, 96, 1)
+#   (256, 69, 2)
+#
+# Both experiments use:
+#
+#   NSAMPLES = 3
+#   NVAR = 4
+#
+# The TH parameters remain unchanged. To reproduce a
+# particular row, manually replace PBITS, UBITS, and M below.
+#
 
 N_RUNS = 1        # Number of independent experiments.
 NSAMPLES = 3      # Number of ECHNP oracle sample pairs.
