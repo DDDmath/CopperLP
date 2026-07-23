@@ -11,7 +11,7 @@ import time
 # (NSAMPLES, PBITS, UBITS, M)
 #
 #   (6, 256, 72, 2)
-#   (8, 256, 76, 3)
+#   (8, 256, 75, 3)
 #
 # NVAR is automatically set equal to NSAMPLES.
 #
