@@ -1,19 +1,21 @@
-CopperLP Reproducibility Package
+CopperLP Research Code
 
-Status: Development snapshot
 Version: 0.1.0
+Status: Development snapshot
 Last updated: 2026-07-23
 
-This repository currently contains the five SageMath experiment scripts
-and the batch runner.
+This repository contains five SageMath research scripts accompanying our work on computing asymptotic bounds for the automated Coppersmith method via linear programming.
 
-Experiment parameters are configured manually in the configuration section
-at the beginning of each SageMath script.
+The included scripts are:
 
-The files under profiles/, instances/, and logs/ are currently templates or
-placeholders. They are not automatically loaded or populated by the current
-experiment scripts.
+- CIHNP_CSURF.sage
+- MIHNP.sage
+- ECHNP.sage
+- LCG.sage
+- LIPH_POKE.sage
 
-A numbered reproducibility release will be prepared after the exact Table 2
-parameter profiles, fixed test instances, and verified reference results have
-been added.
+Each script is executed independently. Experimental parameters are configured manually in the configuration section near the beginning of the corresponding script.
+
+The repository is provided as a research code archive. It is not an installable software package and does not provide an automated batch runner.
+
+SageMath 10.8 or later is recommended. The optional msolve backend is disabled by default and is not required for running the scripts.
