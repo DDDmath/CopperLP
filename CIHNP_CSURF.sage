@@ -3,6 +3,19 @@
 from sage.all import *
 import time
 
+# ============================================================
+# User configuration
+# ============================================================
+#
+# Table 2 parameter presets: (PBITS, UBITS, M)
+#
+#   (256,  29, 2)
+#   (512,  70, 3)
+#   (1024, 177, 4)
+#
+# To reproduce a particular row, manually replace PBITS,
+# UBITS, and M below. The TH parameters remain unchanged.
+#
 
 N_RUNS = 1        # Number of independent experiments.
 PBITS = 256       # Modulus bits.
