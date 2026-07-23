@@ -11,7 +11,7 @@ import time
 #
 #   (256,  29, 2)
 #   (512,  69, 3)
-#   (1024, 177, 4)
+#   (1024, 176, 4)
 #
 # To reproduce a particular row, manually replace PBITS,
 # UBITS, and M below. The TH parameters remain unchanged.
