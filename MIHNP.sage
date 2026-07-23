@@ -1,4 +1,4 @@
-# MIHNP 3-sample experiment for SageMath 10.8+.
+# MIHNP 3,4,5-sample experiment for SageMath 10.8+.
 # Small-root solving + Assumption 1 verification.
 from sage.all import *
 import itertools
