@@ -4,6 +4,28 @@ from sage.all import *
 import itertools
 import time
 
+# ============================================================
+# User configuration
+# ============================================================
+#
+# Table 2 parameter presets:
+# (NSAMPLES, PBITS, UBITS, M, TH)
+#
+# 3 samples:
+#   (3, 512, 195, 2, QQ(3))
+#   (3, 256, 102, 3, QQ(3))
+#   (3, 256, 105, 4, QQ(3))
+#
+# 4 samples:
+#   (4, 256, 101, 1, QQ(31521)/QQ(10000))
+#   (4, 512, 230, 2, QQ(31521)/QQ(10000))
+#
+# 5 samples:
+#   (5, 512, 225, 1, QQ(34028)/QQ(10000))
+#
+# To reproduce a particular row, manually replace NSAMPLES,
+# PBITS, UBITS, M, and TH below.
+#
 
 N_RUNS = 1        # Number of independent experiments.
 NSAMPLES = 3  # Number of MIHNP samples.
